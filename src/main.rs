@@ -37,26 +37,32 @@ fn main() {
         }
     };
     
-    let result: Result<f64, String>;
+    let operation: Operation;
 
     match operation_input {
         "Add" => {
-            result = calculate(Operation::Add { x: first_number, y: second_number })
+            // result = calculate(Operation::Add { x: first_number, y: second_number })
+            operation = Operation::Add { x: first_number, y: second_number }
         },
         "Subtract" => {
-            result = calculate(Operation::Subtract { x: first_number, y: second_number })
+            // result = calculate(Operation::Subtract { x: first_number, y: second_number })
+            operation = Operation::Subtract { x: first_number, y: second_number }
         },
         "Multiply" => {
-            result = calculate(Operation::Multiply { x: first_number, y: second_number })
+            // result = calculate(Operation::Multiply { x: first_number, y: second_number })
+            operation = Operation::Multiply { x: first_number, y: second_number }
         }
         "Divide" => {
-            result = calculate(Operation::Divide { x: first_number, y: second_number })
+            // result = calculate(Operation::Divide { x: first_number, y: second_number })
+            operation = Operation::Divide { x: first_number, y: second_number }
         }
         _ => {
             println!("Invalid operation");
             return
         }
     }
+
+    let result: Result<f64, String> = calculate(operation);
 
     match result {
         Ok(num) => {
